@@ -111,6 +111,21 @@ return [
             'prefix_indexes' => true,
             // 'encrypt' => env('DB_ENCRYPT', 'yes'),
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
+
+             'external' => [
+        'driver' => 'mysql',
+        'host' => env('DB_HOST_EXTERNAL', '127.0.0.1'),
+        'port' => env('DB_PORT_EXTERNAL', '3306'),
+        'database' => env('DB_DATABASE_EXTERNAL', 'forge'),
+        'username' => env('DB_USERNAME_EXTERNAL', 'forge'),
+        'password' => env('DB_PASSWORD_EXTERNAL', ''),
+        'unix_socket' => env('DB_SOCKET_EXTERNAL', ''),
+        'charset' => 'utf8mb4',
+        'collation' => 'utf8mb4_unicode_ci',
+        'prefix' => '',
+        'strict' => true,
+        'engine' => null,
+    ],
         ],
 
     ],
