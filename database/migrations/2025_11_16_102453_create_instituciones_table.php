@@ -18,16 +18,11 @@ return new class extends Migration
         $table->string('Nombre_aop'); // Nombre del establecimiento
         $table->string('LOCALIDAD'); 
         $table->string('AOP'); 
-        $table->string('establecimiento_id'); 
+        $table->string('establecimiento_id')->unique(); 
         $table->timestamps();
     });
 }
 
-public function down()
-{
-    Schema::dropIfExists('instituciones');
-}
-     */
     public function down(): void
     {
         Schema::dropIfExists('instituciones');
