@@ -48,14 +48,41 @@
         <option value="otros">Otros</option>
     </select>
 </div>
-
-        <div class="col-12">
-            <label for="institucion" class="form-label">Institución</label>
-            <input type="text" class="form-control" id="institucion" name="institucion" required>
-        </div>
+<div class="col-md-6">
+        <label for="institucion" class="form-label">Institución</label>
+ <select class="form-control" id="institucion" name="institucion" required>
+      <option value="">Selecciona o busca una institución</option>
+  </select>
+</div>
 
         <div class="col-12">
             <button type="submit" class="btn btn-primary">Crear Usuario</button>
         </div>
     </form>
 @endsection
+  @section('scripts')
+  <script>
+  $(document).ready(function() {
+      $('#institucion').select2({
+          placeholder: 'Busca una institución...',
+          ajax: {
+              url: '/api/instituciones/search',
+              dataType: 'json',
+              delay: 250,
+              data: function (params) {
+                  return { q: params.term };
+              },
+              processResults: function (data) {
+                  return {
+                      results: data.map(function(item) {
+                          return { id: item.Nombre_aop, text: item.Nombre_aop };
+                      })
+                  };
+              },
+              cache: true
+          },
+          minimumInputLength: 2
+      });
+  });
+  </script>
+  @endsection

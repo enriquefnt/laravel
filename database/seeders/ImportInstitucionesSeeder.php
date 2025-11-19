@@ -13,11 +13,6 @@ class ImportInstitucionesSeeder extends Seeder
         $externalData = DB::connection('external')
             ->table('institucion')  // Nombre de tu tabla externa
             ->select('NOMBRE', 'Nombre_aop', 'LOCALIDAD', 'AOP', 'establecimiento_id')
-            // ->select('NOMBRE')  
-            // ->select('Nombre_aop') 
-            // ->select('LOCALIDAD') 
-            // ->select('AOP') 
-            // ->select('establecimiento_id') // Solo el campo que tienes
             ->get();
 
         // Inserta en la nueva tabla (Laravel maneja id y timestamps)
