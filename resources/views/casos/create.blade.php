@@ -17,7 +17,11 @@
     <label for="fecha_hora_solicitud" class="form-label">Fecha y Hora de Solicitud</label>
     <input type="datetime-local" class="form-control" id="fecha_hora_solicitud" name="fecha_hora_solicitud" required>
 </div>
-
+ 
+<div class="col-md-6">
+        <label for="institucion_solicitante" class="form-label">Institución Solicitante</label>
+        <input type="text" class="form-control" id="institucion_solicitante" name="institucion_solicitante" required>
+    </div>
 
     <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
@@ -29,7 +33,7 @@
         <input type="text" class="form-control" id="apellido" name="apellido" required>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
         <label for="sexo" class="form-label">Sexo</label>
         <select class="form-select" id="sexo" name="sexo" required>
             <option value="">Seleccionar...</option>
@@ -39,12 +43,12 @@
         </select>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
         <label for="fechanacimiento" class="form-label">Fecha de Nacimiento</label>
         <input type="date" class="form-control" id="fechanacimiento" name="fechanacimiento" required>
     </div>
 
-   <div class="col-md-6">
+   <div class="col-md-4">
     <label for="edad" class="form-label">Edad</label>
     <input type="text" class="form-control" id="edad" name="edad" readonly required>
 </div>
@@ -70,12 +74,12 @@
         <input type="text" class="form-control" id="domicilio" name="domicilio" required>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-3">
         <label for="localidad" class="form-label">Localidad</label>
         <input type="text" class="form-control" id="localidad" name="localidad" required>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-3">
         <label for="telefono" class="form-label">Teléfono</label>
         <input type="tel" class="form-control" id="telefono" name="telefono" required>
     </div>
@@ -105,10 +109,7 @@
         <input type="text" class="form-control" id="medico_solicitante" name="medico_solicitante" required>
     </div>
 
-    <div class="col-md-6">
-        <label for="institucion_solicitante" class="form-label">Institución Solicitante</label>
-        <input type="text" class="form-control" id="institucion_solicitante" name="institucion_solicitante" required>
-    </div>
+   
 
     <div class="col-md-6">
         <label for="motivo_traslado" class="form-label">Motivo del Traslado</label>
@@ -277,30 +278,7 @@
 
 @endsection
   @section('scripts')
-  <script>
-  $(document).ready(function() {
-      $('#institucion').select2({
-          placeholder: 'Busca una institución...',
-          ajax: {
-              url: '/api/instituciones/search',
-              dataType: 'json',
-              delay: 250,
-              data: function (params) {
-                  return { q: params.term };
-              },
-              processResults: function (data) {
-                  return {
-                      results: data.map(function(item) {
-                          return { id: item.Nombre_aop, text: item.Nombre_aop };
-                      })
-                  };
-              },
-              cache: true
-          },
-          minimumInputLength: 2
-      });
-  });
-  </script>
+
   <script>
     document.addEventListener("DOMContentLoaded", () => {
         const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
