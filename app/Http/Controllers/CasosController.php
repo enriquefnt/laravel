@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Casos;
@@ -18,36 +17,36 @@ class CasosController extends Controller
     {
         // Validación de inputs
         $request->validate([
-            'fecha_solicitud' => 'required|date',
+            'ffecha_hora_solicitud' => 'required|date_format:H:i',
             'nombre' => 'required|string|max:255',
             'apellido' => 'required|string|max:255',
             'sexo' => 'required|in:M,F,O',
             'fechanacimiento' => 'required|date',
-            'edad' => 'required|integer|min:0',
+            'edad' => 'nullable|integer|min:0',
             'tipodocumento' => 'required|string|max:50',
-            'nrodocumento' => 'required|string|max:100|unique:usuarios',
-            'domicilio' => 'required|string|max:255',
-            'localidad' => 'required|string|max:255',
-            'telefono' => 'required|string|max:50',
-            'obrasocial' => 'required|string|max:255',
-            'nroafiliado' => 'required|string|max:100',
+            'nrodocumento' => 'nullable|string|max:8|', 
+            'domicilio' => 'nullable|string|max:255',
+            'localidad' => 'nullable|string|max:255',
+            'telefono' => 'nullable|string|max:50',
+            'obrasocial' => 'nullable|string|max:255',
+            'nroafiliado' => 'nullable|string|max:25',
             'acompaniante' => 'nullable|string|max:255',
             'dni_acompaniante' => 'nullable|string|max:100',
-            'medico_solicitante' => 'required|string|max:255',
-            'institucion_solicitante' => 'required|string|max:255',
-            'motivo_traslado' => 'required|string|max:500',
-            'codigo_traslado' => 'required|string|max:100',
-            'origen' => 'required|string|max:255',
-            'destino' => 'required|string|max:255',
-            'horario_salida' => 'required|date_format:H:i',
-            'horario_llegada' => 'required|date_format:H:i',
-            'aeronave' => 'required|string|max:255',
-            'medico_aeroevacuador' => 'required|string|max:255',
-            'enfermero_aeroevacuador' => 'required|string|max:255',
-            'estado_viaaerea' => 'required|string|max:500',
-            'estado_respiratorio' => 'required|string|max:500',
-            'estado_cardiovascular' => 'required|string|max:500',
-            'estado_neurologico' => 'required|string|max:500',
+            'medico_solicitante' => 'nullable|string|max:255',
+            'institucion_solicitante' => 'rnullable|string|max:255',
+            'motivo_traslado' => 'nullable|string|max:500',
+            'codigo_traslado' => 'nullable|string|max:100',
+            'origen' => 'nullable|string|max:255',
+            'destino' => 'nullable|string|max:255',
+            'fecha_hora_salida' => 'nullable|date_format:H:i',
+            'fecha_hora_llegada' => 'nullable|date_format:H:i',
+            'aeronave' => 'nullable|string|max:255',
+            'medico_aeroevacuador' => 'nullable|string|max:255',
+            'enfermero_aeroevacuador' => 'nullable|string|max:255',
+            'estado_viaaerea' => 'nullable|string|max:500',
+            'estado_respiratorio' => 'nullable|string|max:500',
+            'estado_cardiovascular' => 'rnullable|string|max:500',
+            'estado_neurologico' => 'nullable|string|max:500',
             'otros' => 'nullable|string|max:1000',
             'epicrisis' => 'nullable|string|max:2000',
 
@@ -56,7 +55,7 @@ class CasosController extends Controller
 
         // Crear usuario con password hasheada
         Casos::create([
-            'fecha_solicitud' => $request->fecha_solicitud,
+            'fecha_hora_solicitud' => $request->fecha_hora_solicitud,
             'nombre' => $request->nombre,
             'apellido' => $request->apellido,
             'sexo' => $request->sexo,
@@ -77,8 +76,8 @@ class CasosController extends Controller
             'codigo_traslado' => $request->codigo_traslado,
             'origen' => $request->origen,
             'destino' => $request->destino,
-            'horario_salida' => $request->horario_salida,
-            'horario_llegada' => $request->horario_llegada,
+            'fecha_hora_salida' => $request->fecha_hora_salida,
+            'fecha_hora_llegada' => $request->fecha_hora_llegada,
             'aeronave' => $request->aeronave,
             'medico_aeroevacuador' => $request->medico_aeroevacuador,
             'enfermero_aeroevacuador' => $request->enfermero_aeroevacuador,
@@ -93,15 +92,5 @@ class CasosController extends Controller
 
         // Redirigir con mensaje de éxito
         return redirect()->route('usuarios.create')->with('success', 'Usuario creado exitosamente!');
-    } //
+    } 
 }
-/*
-[
-       'fecha_solicitud', 'nombre', 'apellido', 'sexo', 'fechanacimiento', 'edad', 'tipodocumento',
-        'nrodocumento', 'domicilio', 'localidad', 'telefono', 'obrasocial', 'nroafiliado', 'acompaniante',
-         'dni_acompaniante', 'medico_solicitante', 'institucion_solicitante', 'motivo_traslado', 'codigo_traslado',
-          'origen', 'destino', 'horario_salida', 'horario_llegada', 'aeronave', 'medico_aeroevacuador', 
-          'enfermero_aeroevacuador','estado_viaaerea', 'estado_respiratorio', 'estado_cardiovascular',
-           'estado_neurologico', 'otros', 'epicrisis'
-    ]
-/*

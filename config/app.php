@@ -101,7 +101,7 @@ return [
 
     'previous_keys' => [
         ...array_filter(
-            explode(',', (string) env('APP_PREVIOUS_KEYS', ''))
+            explode(',', (string) (function_exists('env') ? env('APP_PREVIOUS_KEYS', '') : ($_ENV['APP_PREVIOUS_KEYS'] ?? getenv('APP_PREVIOUS_KEYS') ?? '')))
         ),
     ],
 

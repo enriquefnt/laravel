@@ -20,3 +20,5 @@ Route::get('/casos/create', [CasosController::class, 'create'])->name('casos.cre
 // Ruta para procesar el formulario (POST)
 Route::post('/casos', [CasosController::class, 'store'])->name('casos.store');
 
+
+

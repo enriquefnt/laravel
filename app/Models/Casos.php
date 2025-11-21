@@ -8,10 +8,10 @@ class Casos extends Model
     use HasFactory;
     protected $table = 'usuarios'; // Especifica la tabla
     protected $fillable = [
-       'fecha_solicitud', 'nombre', 'apellido', 'sexo', 'fechanacimiento', 'edad', 'tipodocumento',
+       'fecha_hora_solicitud', 'nombre', 'apellido', 'sexo', 'fechanacimiento', 'edad', 'tipodocumento',
         'nrodocumento', 'domicilio', 'localidad', 'telefono', 'obrasocial', 'nroafiliado', 'acompaniante',
          'dni_acompaniante', 'medico_solicitante', 'institucion_solicitante', 'motivo_traslado', 'codigo_traslado',
-          'origen', 'destino', 'horario_salida', 'horario_llegada', 'aeronave', 'medico_aeroevacuador', 
+          'origen', 'destino', 'fecha_hora_salida', 'fecha_hora_salida', 'aeronave', 'medico_aeroevacuador', 
           'enfermero_aeroevacuador','estado_viaaerea', 'estado_respiratorio', 'estado_cardiovascular',
            'estado_neurologico', 'otros', 'epicrisis'
     ];
