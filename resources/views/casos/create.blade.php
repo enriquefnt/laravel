@@ -66,7 +66,7 @@
 
     <div class="col-md-6">
         <label for="nrodocumento" class="form-label">Número de Documento</label>
-        <input type="number" class="form-control" id="nrodocumento" name="nrodocumento" required>
+        <input type="text" class="form-control" id="nrodocumento" name="nrodocumento" required>
     </div>
 
     <div class="col-md-6">
@@ -101,23 +101,23 @@
 
     <div class="col-md-6">
         <label for="dni_acompaniante" class="form-label">DNI del Acompañante</label>
-        <input type="number" class="form-control" id="dni_acompaniante" name="dni_acompaniante">
+        <input type="text" class="form-control" id="dni_acompaniante" name="dni_acompaniante">
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
         <label for="medico_solicitante" class="form-label">Médico Solicitante</label>
         <input type="text" class="form-control" id="medico_solicitante" name="medico_solicitante" required>
     </div>
 
    
 
-    <div class="col-md-6">
+    <div class="col-md-4">
         <label for="motivo_traslado" class="form-label">Motivo del Traslado</label>
         <input type="text" class="form-control" id="motivo_traslado" name="motivo_traslado" required>
     </div>
 
     <!-- CÓDIGO DE TRASLADO (verde/amarillo/rojo) -->
-            <div class="col-md-12 mt-3">
+            <div class="col-md-4 mt-3">
                 <label class="form-label">Código de traslado</label>
 
                 <div class="d-flex gap-3">
@@ -140,7 +140,8 @@
                 </div>
             </div>
 
-        </div>
+      
+            
 
     <div class="col-md-6">
         <label for="origen" class="form-label">Origen</label>
@@ -152,17 +153,17 @@
         <input type="text" class="form-control" id="destino" name="destino" required>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
     <label for="fecha_hora_salida" class="form-label">Fecha y Hora de Salida</label>
     <input type="datetime-local" class="form-control" id="fecha_hora_salida" name="fecha_hora_salida" required>
 </div>
 
-<div class="col-md-6">
+<div class="col-md-4">
     <label for="fecha_hora_llegada" class="form-label">Fecha y Hora de llegada</label>
     <input type="datetime-local" class="form-control" id="fecha_hora_llegada" name="fecha_hora_llegada" required>
 </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
         <label for="aeronave" class="form-label">Aeronave</label>
         <input type="text" class="form-control" id="aeronave" name="aeronave" required>
     </div>
