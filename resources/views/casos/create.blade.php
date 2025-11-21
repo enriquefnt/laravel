@@ -179,7 +179,7 @@
     </div>
 
  <!-- VIA AÉREA -->
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label class="form-label">Vía aérea</label>
                 <div class="input-group">
                     <select name="estado_viaaerea" class="form-select" required>
@@ -199,7 +199,7 @@
             </div>
 
             <!-- RESPIRATORIO -->
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label class="form-label">Respiratorio</label>
                 <div class="input-group">
                     <select name="estado_respiratorio" class="form-select" required>
@@ -219,7 +219,7 @@
             </div>
 
             <!-- CARDIOVASCULAR -->
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label class="form-label">Cardiovascular</label>
                 <div class="input-group">
                     <select name="estado_cardiovascular" class="form-select" required>
@@ -239,7 +239,7 @@
             </div>
 
             <!-- NEUROLÓGICO -->
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label class="form-label">Neurológico</label>
                 <div class="input-group">
                     <select name="estado_neurologico" class="form-select" required>
