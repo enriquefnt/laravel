@@ -1,0 +1,4 @@
+[23-Nov-2025 13:30:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function shell_exec() in /home/saltaped/public_html/aerosamec/public/extract_vendor.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/saltaped/public_html/aerosamec/public/extract_vendor.php on line 5
