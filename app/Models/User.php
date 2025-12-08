@@ -1,48 +1,52 @@
 <?php
-
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
+    protected $table = 'usuarios';  // Usa tu tabla
+
     protected $fillable = [
-        'name',
+        'nombre',  // Mapea a tu columna 'nombre'
+        'apellido',  // Campo extra
+        'nombre_usuario',  // Username
         'email',
         'password',
+        'funcion',  // Campos extra
+        'institucion',
+        'fecha_agregado',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'fecha_agregado' => 'datetime',  // Si es timestamp
+        'password' => 'hashed',
+    ];
+
+    // Getter para combinar nombre y apellido (opcional, para mostrar "name")
+    public function getNameAttribute()
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return $this->nombre . ' ' . $this->apellido;
     }
+
+    // Si quieres usar 'nombre_usuario' como username en lugar de email
+    public function getAuthIdentifierName()
+    {
+        return 'nombre_usuario';  // Cambia a 'email' si prefieres login por email
+    }
+    public function getAuthIdentifier()
+{
+    return $this->getAttribute($this->getAuthIdentifierName());
+}
+
 }
